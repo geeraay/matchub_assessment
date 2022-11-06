@@ -12,6 +12,7 @@ import {
   HStack,
   Spacer,
   ScaleFade,
+  useToast,
 } from "@chakra-ui/react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
@@ -26,16 +27,46 @@ export default function Login() {
     formState: { errors, isSubmitting },
   } = useForm()
   const dispatch = useAuthDispatch()
+  const toast = useToast()
 
   async function doLogin({ username, password }: any) {
-    const result = await login(username, password)
-    localStorage.setItem("user", JSON.stringify(result.user))
-    localStorage.setItem("token", result.token)
-    dispatch({
-      type: "LOGIN",
-      payload: result.user,
-    })
-    navigate("/")
+    try {
+      await login(username, password).then(
+        (result) => {
+          toast({
+            title: "Login Successful!",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+          })
+          localStorage.setItem("user", JSON.stringify(result.user))
+          localStorage.setItem("token", result.token)
+          dispatch({
+            type: "LOGIN",
+            payload: result.user,
+          })
+          navigate("/")
+        },
+        (error) => {
+          console.log(error)
+          toast({
+            title: "Login Failed!",
+            description: "User or password is incorrect!",
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+          })
+        }
+      )
+    } catch (error) {
+      toast({
+        title: "Login Failed!",
+        description: "Server error!",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      })
+    }
   }
   function goRegister() {
     navigate("/auth/register")
