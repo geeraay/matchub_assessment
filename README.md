@@ -1,4 +1,4 @@
-# Matchub Coding Aessessment
+# Matchub Coding Assessment
 
 The architecture of this boilerplate contains of two parts, which are backend and frontend. The development process using Node.js version 16.13.2.
 
