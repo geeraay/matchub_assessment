@@ -1,4 +1,4 @@
-# Matchub Coding Assessment
+# Matchub Coding Aessessment
 
 The architecture of this boilerplate contains of two parts, which are backend and frontend. The development process using Node.js version 16.13.2.
 
@@ -32,6 +32,12 @@ then, to run development mode
 npm run start:dev
 ```
 
+access the endpoints with base url
+
+```
+localhost:3001/api/v1/
+```
+
 ## Frontend - React Typescript
 
 This part of boilerplate act as user interface website which uses [Chakra-UI](https://chakra-ui.com/) component library to speed up the development process. Navigation inside the website utilizes [react-router-dom](https://reactrouter.com/en/main) version 6. To fetch the data from backend server, it uses [Axios](https://axios-http.com/docs/intro). This boilerplate uses [react-hook-form](https://react-hook-form.com/), and using [chakra-dayzed-datepicker](https://github.com/aboveyunhai/chakra-dayzed-datepicker) for datepicker component.
@@ -62,4 +68,10 @@ then, to run development mode
 
 ```
 npm run start
+```
+
+access the development website at
+
+```
+localhost:3000
 ```
