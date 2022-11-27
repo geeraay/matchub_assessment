@@ -1,4 +1,4 @@
-# Matchub Coding Assessment
+# React TS - NestJs Boilerplate
 
 The architecture of this boilerplate contains of two parts, which are backend and frontend. The development process using Node.js version 16.13.2.
 
